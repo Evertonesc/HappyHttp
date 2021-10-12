@@ -21,7 +21,6 @@ namespace HappyHttp
 
             var mediaType = MediaTypeHandler.GetMediaType(httpRequest.MediaType);
 
-            //if (string.IsNullOrEmpty(httpRequest.JsonPayload) == false)
             var content = new StringContent(httpRequest.JsonPayload, Encoding.UTF8, mediaType);
 
             var response = httpRequest.HttpVerb switch
