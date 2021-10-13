@@ -1,4 +1,6 @@
 ﻿using HappyHttp.Enums;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace HappyHttp.Interfaces
 {
@@ -9,6 +11,10 @@ namespace HappyHttp.Interfaces
         public HttpMediaType MediaType { get; set; }
         public AuthorizationType AuthorizationType { get; set; }
         public string Token { get; set; }
-        public string JsonPayload { get; set; }
+        public string JsonBody { get; set; }
+        public Dictionary<string, string> UrlEncodedParams { get; set; }
+        public HttpContent Content { get; }
+
+        void SetHttpRequestContent();
     }
 }
