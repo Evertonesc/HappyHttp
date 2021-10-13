@@ -1,5 +1,6 @@
 ﻿using HappyHttp.Enums;
 using HappyHttp.Interfaces;
+using System.Collections.Generic;
 
 namespace HappyHttp
 {
@@ -10,7 +11,8 @@ namespace HappyHttp
         private HttpMediaType MediaType { get; set; }
         private AuthorizationType AuthorizationType { get; set; }
         private string Token { get; set; }
-        private string JsonPayload { get; set; }
+        private string JsonBody { get; set; }
+        private Dictionary<string, string> UrlEncodedParams { get; set; }
 
         public HttpRequestBuilder WithUrl(string url)
         {
@@ -24,9 +26,10 @@ namespace HappyHttp
             return this;
         }
 
-        public HttpRequestBuilder WithMediaType(HttpMediaType mediaType)
+        public HttpRequestBuilder WithMediaType(HttpMediaType mediaType, Dictionary<string, string> urlEncodedParams = null)
         {
             MediaType = mediaType;
+            UrlEncodedParams = urlEncodedParams;
             return this;
         }
 
@@ -37,9 +40,9 @@ namespace HappyHttp
             return this;
         }
 
-        public HttpRequestBuilder WithJsonRequestBody(string jsonPayload)
+        public HttpRequestBuilder WithJsonRequestBody(string jsonBody)
         {
-            JsonPayload = jsonPayload;
+            JsonBody = jsonBody;
             return this;
         }
 
@@ -52,7 +55,8 @@ namespace HappyHttp
                 MediaType = MediaType,
                 AuthorizationType = AuthorizationType,
                 Token = Token,
-                JsonPayload = JsonPayload
+                JsonBody = JsonBody,
+                UrlEncodedParams = UrlEncodedParams
             };
         }
     }
