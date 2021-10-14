@@ -1,5 +1,6 @@
 ﻿using HappyHttp.Enums;
 using HappyHttp.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -29,6 +30,12 @@ namespace HappyHttp
             };
 
             return response;
+        }
+
+        public static async ValueTask<T> DeserializeHttpResponse<T>(this HttpResponseMessage httpResponse)
+        {
+            var jsonResponse = await httpResponse.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
 
         protected static class AuthorizationHandler
