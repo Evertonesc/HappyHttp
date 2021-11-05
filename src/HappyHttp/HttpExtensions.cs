@@ -32,11 +32,26 @@ namespace HappyHttp
             return response;
         }
 
+        /// <summary>
+        /// Extension method for deserialize json to generic objects
+        /// </summary>
+        /// <typeparam name="T">Object to wich the string is being converted</typeparam>
+        /// <param name="httpResponse"></param>
+        /// <returns></returns>
         public static async ValueTask<T> DeserializeHttpResponse<T>(this HttpResponseMessage httpResponse)
         {
             var jsonResponse = await httpResponse.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
+
+        /// <summary>
+        /// Extension method for objects serialization
+        /// </summary>
+        /// <param name="obj">The generic object to serialize</param>
+        /// <returns></returns>
+        public static string SerializeObject(this object obj) =>
+            JsonConvert.SerializeObject(obj);
+
 
         protected static class AuthorizationHandler
         {

@@ -19,11 +19,20 @@ namespace HappyHttp
 
         public void SetHttpRequestContent()
         {
-            if (MediaType == HttpMediaType.UrlEncoded)
-                Content = new FormUrlEncodedContent(UrlEncodedParams);
+            if (HttpVerb == HttpVerb.Get)
+                return;
 
-            if (MediaType == HttpMediaType.Json)
-                Content = new StringContent(JsonBody, Encoding.UTF8, "application/json");
+            switch (MediaType)
+            {
+                case HttpMediaType.Json:
+                    Content = new FormUrlEncodedContent(UrlEncodedParams);
+                    break;
+                case HttpMediaType.UrlEncoded:
+                    Content = new StringContent(JsonBody, Encoding.UTF8, "application/json");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
