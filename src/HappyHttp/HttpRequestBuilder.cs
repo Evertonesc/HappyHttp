@@ -13,6 +13,8 @@ namespace HappyHttp
         private string Token { get; set; }
         private string JsonBody { get; set; }
         private Dictionary<string, string> UrlEncodedParams { get; set; }
+        public Dictionary<string, string> Headers { get; set; }
+        public bool HasHeaderValues { get; set; }
 
         /// <summary>
         /// Set the Url request
@@ -46,6 +48,18 @@ namespace HappyHttp
         {
             MediaType = mediaType;
             UrlEncodedParams = urlEncodedParams;
+            return this;
+        }
+
+        /// <summary>
+        /// Add headers to Http request
+        /// </summary>
+        /// <param name="headers">Dictionary with key value headers</param>
+        /// <returns></returns>
+        public HttpRequestBuilder WithHeaders(Dictionary<string, string> headers)
+        {
+            Headers = headers;
+            HasHeaderValues = true;
             return this;
         }
 
@@ -87,7 +101,9 @@ namespace HappyHttp
                 AuthorizationType = AuthorizationType,
                 Token = Token,
                 JsonBody = JsonBody,
-                UrlEncodedParams = UrlEncodedParams
+                UrlEncodedParams = UrlEncodedParams,
+                Headers = Headers,
+                HasHeaderValues = HasHeaderValues
             };
         }
     }

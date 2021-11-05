@@ -10,6 +10,12 @@ namespace HappyHttp
 {
     public static class HttpExtensions
     {
+        /// <summary>
+        /// Send a request to the resources in IHttpRequest object
+        /// </summary>
+        /// <param name="httpClient"></param>
+        /// <param name="httpRequest"></param>
+        /// <returns></returns>
         public static async Task<HttpResponseMessage> SendRequest(this HttpClient httpClient, IHttpRequest httpRequest)
         {
             httpClient.DefaultRequestHeaders.Authorization =
@@ -18,6 +24,14 @@ namespace HappyHttp
                 : default;
 
             httpRequest.SetHttpRequestContent();
+
+            if (httpRequest.HasHeaderValues)
+            {
+                foreach (var header in httpRequest.Headers)
+                {
+                    httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+                }
+            }
 
             var response = httpRequest.HttpVerb switch
             {
