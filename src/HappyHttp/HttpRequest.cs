@@ -15,6 +15,8 @@ namespace HappyHttp
         public string Token { get; set; }
         public string JsonBody { get; set; }
         public Dictionary<string, string> UrlEncodedParams { get; set; }
+        public Dictionary<string, string> Headers { get; set; }
+        public bool HasHeaderValues { get; set; }
         public HttpContent Content { get; private set; }
 
         public void SetHttpRequestContent()
@@ -24,10 +26,10 @@ namespace HappyHttp
 
             switch (MediaType)
             {
-                case HttpMediaType.Json:
+                case HttpMediaType.UrlEncoded:
                     Content = new FormUrlEncodedContent(UrlEncodedParams);
                     break;
-                case HttpMediaType.UrlEncoded:
+                case HttpMediaType.Json:
                     Content = new StringContent(JsonBody, Encoding.UTF8, "application/json");
                     break;
                 default:
