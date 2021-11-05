@@ -13,6 +13,8 @@ namespace HappyHttp.Interfaces
         public string Token { get; set; }
         public string JsonBody { get; set; }
         public Dictionary<string, string> UrlEncodedParams { get; set; }
+        public Dictionary<string, string> Headers { get; set; }
+        public bool HasHeaderValues { get; set; }
         public HttpContent Content { get; }
 
         void SetHttpRequestContent();
