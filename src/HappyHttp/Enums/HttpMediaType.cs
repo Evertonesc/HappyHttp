@@ -1,8 +1,8 @@
-﻿namespace HappyHttp.Enums
+﻿namespace HappyHttp.Enums;
+
+public enum HttpMediaType
 {
-    public enum HttpMediaType
-    {
-        Json,
-        UrlEncoded
-    }
+    Json,
+    UrlEncoded
 }
+
