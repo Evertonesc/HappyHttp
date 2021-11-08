@@ -1,11 +1,11 @@
-﻿namespace HappyHttp.Enums
+﻿namespace HappyHttp.Enums;
+
+public enum HttpVerb
 {
-    public enum HttpVerb
-    {
-        Get,
-        Post,
-        Put,
-        Patch,
-        Delete
-    }
+    Get,
+    Post,
+    Put,
+    Patch,
+    Delete
 }
+

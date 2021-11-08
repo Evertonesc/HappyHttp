@@ -1,8 +1,8 @@
-﻿namespace HappyHttp.Enums
+﻿namespace HappyHttp.Enums;
+
+public enum AuthorizationType
 {
-    public enum AuthorizationType
-    {
-        None,
-        Bearer
-    }
+    None,
+    Bearer
 }
+
