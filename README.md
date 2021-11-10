@@ -1,9 +1,24 @@
 ![.NET](https://github.com/Evertonesc/HappyHttp/workflows/.NET/badge.svg?branch=main)
+[![NuGet](http://img.shields.io/nuget/v/happyhttp)](https://www.nuget.org/packages/happyhttp/)
 
-## HappyHttp
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Evertonesc/HappyHttp/blob/main/LICENSE
+)
+
+# HappyHttp
 A simple package that helps you to get more productive when working with HTTP Requests in C#
 
-# How to use
+## Instalation
+
+Use the nuget package manager on Visual Studio or via cli:
+
+```powershell
+Install-Package happyhttp
+```
+```bash
+dotnet add package happyhttp 
+```
+
+## How to use
 
 After installing the package, instantiate the `HttpRequestBuilder` object and pass the properties like url, HttpVerb, token, and Json body to it. 
 
