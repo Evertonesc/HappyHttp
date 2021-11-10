@@ -46,13 +46,14 @@ public class HttpRequestTest
     public async Task HttpPostRequestWithHeaders_ShouldReturn_Status200()
     {
         //Arrange
-        var smsUrl = _config["CovidStatistics:Url"];
+        var covidApiUrl = _config["CovidStatistics:Url"];
+        var key = _config["CovidStatistics:Key"];
         var httpVerb = HttpVerb.Get;
 
         var headers = new Dictionary<string, string>
             {
                 { "x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com" },
-                { "x-rapidapi-key", "566bce9ffemsh831e1cbade3c7cap11f533jsn067b4d19c55e" }
+                { "x-rapidapi-key", key }
             };
 
         var requestObject = new
@@ -63,7 +64,7 @@ public class HttpRequestTest
         var jsonBody = requestObject.SerializeObject();
 
         var httpRequest = new HttpRequestBuilder()
-            .WithUrl(smsUrl)
+            .WithUrl(covidApiUrl)
             .WithHttpVerb(httpVerb)
             .WithHeaders(headers)
             .WithJsonRequestBody(jsonBody)
