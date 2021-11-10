@@ -1,4 +1,4 @@
-![.NET](https://github.com/Evertonesc/HappyHttp/blob/main/.github/workflows/dotnet.yml/badge.svg?branch=main)
+![.NET](https://github.com/Evertonesc/HappyHttp/workflows/.NET/badge.svg?branch=main)
 
 ## HappyHttp
 A simple package that helps you to get more productive when working with HTTP Requests in C#
