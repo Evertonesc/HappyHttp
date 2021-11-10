@@ -7,10 +7,20 @@
      <Version>1.0.3</Version>
     <Authors>evertonesc</Authors>
     <Description>A simple package that helps you to get more productive when working with HTTP Requests in C#</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Evertonesc/HappyHttp</RepositoryUrl>
+    <Copyright>2021</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
