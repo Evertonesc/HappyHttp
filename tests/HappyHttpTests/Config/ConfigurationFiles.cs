@@ -8,6 +8,7 @@ public static class ConfigurationFiles
     {
         var config = new ConfigurationBuilder()
             .AddJsonFile("appsettings.test.json", optional: false, reloadOnChange: true)
+            .AddJsonFile("appsettings.keys.json", optional: false, reloadOnChange: true)
             .Build();
 
         return config;

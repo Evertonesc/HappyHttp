@@ -15,6 +15,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+tests/HappyHttpTests/appsettings.keys.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
